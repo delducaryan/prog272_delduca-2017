@@ -8,3 +8,7 @@ This is the readme file
 ## Second Heading
 
 This is the second heading text
+
+## Heading from school computer
+
+I added this on the school computer
