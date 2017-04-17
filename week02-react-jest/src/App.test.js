@@ -35,4 +35,19 @@ describe('React Jest Suite', function ()
         wrapper.find('button').simulate('click');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
+
+    it('renders and displays the default first name', () =>
+    {
+        const wrapper = shallow(<Address />);
+        const welcome = <p className="App-intro">firstName: unknown</p>;
+        expect(wrapper.contains(welcome)).toEqual(true);
+    });
+
+    it('renders button click message', () =>
+    {
+        const wrapper = shallow(<Address />);
+        const welcome = <p className="App-intro">firstName: foo</p>;
+        wrapper.find('button').simulate('click');
+        expect(wrapper.contains(welcome)).toEqual(true);
+    });
 });
