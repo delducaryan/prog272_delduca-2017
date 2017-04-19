@@ -3,19 +3,37 @@ import '../App.css';
 
 class Address extends Component
 {
-    constructor()
+    constructor(props)
     {
         super();
-        this.state =
+
+        if (props === undefined)
         {
-            firstName: "unknown",
-            lastName: "unknown",
-            buildingNumber: "unknown",
-            street: "unknown",
-            suite: "unknown",
-            city: "unknown",
-            zipcode: "unknown",
-            state: "unknown"
+            this.state =
+            {
+                firstName: "unknown",
+                lastName: "unknown",
+                buildingNumber: "unknown",
+                street: "unknown",
+                suite: "unknown",
+                city: "unknown",
+                zipcode: "unknown",
+                state: "unknown"
+            }
+        }
+        else
+        {
+            this.state =
+            {
+                firstName: props.address.firstName,
+                lastName: props.address.lastName,
+                buildingNumber: props.address.buildingNumber,
+                street: props.address.street,
+                suite: props.address.suite,
+                city: props.address.city,
+                zipcode: props.address.zipcode,
+                state: props.address.state
+            }
         }
     }
 
