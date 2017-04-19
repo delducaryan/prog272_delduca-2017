@@ -9,7 +9,13 @@ class Address extends Component
         this.state =
         {
             firstName: "unknown",
-            lastName: "unknown"
+            lastName: "unknown",
+            buildingNumber: "unknown",
+            street: "unknown",
+            suite: "unknown",
+            city: "unknown",
+            zipcode: "unknown",
+            state: "unknown"
         }
     }
 
@@ -17,8 +23,14 @@ class Address extends Component
     {
         this.setState(
         {
-            firstName: "foo",
-            lastName: "bar"
+            firstName: "Patty",
+            lastName: "Murray",
+            buildingNumber: "915",
+            street: "2nd Ave",
+            suite: "#2988",
+            city: "Seattle",
+            zipcode: "98174",
+            state: "WA"
         });
     };
 
@@ -28,6 +40,27 @@ class Address extends Component
             <div className="App">
                 <p className="App-intro">
                     firstName: { this.state.firstName }
+                </p>
+                <p className="App-intro">
+                    lastName: { this.state.lastName }
+                </p>
+                <p className="App-intro">
+                    buildingNumber: { this.state.buildingNumber }
+                </p>
+                <p className="App-intro">
+                    street: { this.state.street }
+                </p>
+                <p className="App-intro">
+                    suite: { this.state.suite }
+                </p>
+                <p className="App-intro">
+                    city: { this.state.city }
+                </p>
+                <p className="App-intro">
+                    zipcode: { this.state.zipcode }
+                </p>
+                <p className="App-intro">
+                    state: { this.state.state }
                 </p>
 
                 <button className="setAddress" onClick={this.setAddress}>Set Address</button>
