@@ -6,8 +6,8 @@ class Address extends Component
     constructor(props)
     {
         super();
-
-        if (props === undefined)
+        console.log(props);
+        if (props.address === undefined)
         {
             this.state =
             {
