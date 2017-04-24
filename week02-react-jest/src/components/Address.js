@@ -3,54 +3,44 @@ import '../App.css';
 
 class Address extends Component
 {
+    addresses = "";
+
     constructor(props)
     {
-        super();
+        super(props);
 
-        if (props.address === undefined)
-        {
-            this.state =
-            {
-                firstName: "unknown",
-                lastName: "unknown",
-                buildingNumber: "unknown",
-                street: "unknown",
-                suite: "unknown",
-                city: "unknown",
-                zipcode: "unknown",
-                state: "unknown"
-            }
-        }
-        else
-        {
-            this.state =
-            {
-                firstName: props.address.firstName,
-                lastName: props.address.lastName,
-                buildingNumber: props.address.buildingNumber,
-                street: props.address.street,
-                suite: props.address.suite,
-                city: props.address.city,
-                zipcode: props.address.zipcode,
-                state: props.address.state
-            }
-        }
+        // Set global variable
+        this.addresses = props.addressList;
+
+        // Set default state
+        this.state = this.setAddressState(this.addresses[0]);
     }
 
     setAddress = () =>
     {
-        this.setState(
-        {
-            firstName: "Patty",
-            lastName: "Murray",
-            buildingNumber: "915",
-            street: "2nd Ave",
-            suite: "#2988",
-            city: "Seattle",
-            zipcode: "98174",
-            state: "WA"
-        });
+        // Change state
+        this.setState(this.setAddressState(this.addresses[1]));
     };
+
+    setAddressState(address)
+    {
+        // Return a state var for use with this.state and this.setState()
+        var state =
+        {
+            firstName: address.firstName,
+            lastName: address.lastName,
+            buildingNumber: address.buildingNumber,
+            street: address.street,
+            suite: address.suite,
+            city: address.city,
+            zipcode: address.zipcode,
+            state: address.state,
+            phone: address.phone,
+            website: address.website
+        }
+
+        return state;
+    }
 
     render()
     {
@@ -79,6 +69,12 @@ class Address extends Component
                 </p>
                 <p className="App-intro">
                     state: { this.state.state }
+                </p>
+                <p className="App-intro">
+                    phone: { this.state.phone }
+                </p>
+                <p className="App-intro">
+                    website: { this.state.website }
                 </p>
 
                 <button className="setAddress" onClick={this.setAddress}>Set Address</button>
