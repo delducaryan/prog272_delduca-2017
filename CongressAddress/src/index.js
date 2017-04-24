@@ -4,7 +4,7 @@ import ElfHeader from './components/ElfHeader';
 import App from './App';
 import Address from './components/Address';
 import addresses from './components/address-list';
-import './index.css';
+import './css/index.css';
 
 ReactDOM.render(
   <div>
