@@ -1,42 +1,44 @@
 import React, {Component} from 'react';
 import '../css/App.css';
+import addresses from './address-list';
+import AddressShow from "./AddressShow";
 
 class Address extends Component
 {
-    addresses = "";
 
     constructor(props)
     {
         super(props);
 
         // Set global variable
-        this.addresses = props.addressList;
+        this.addressIndex = 0;
 
         // Set default state
-        this.state = this.setAddressState(this.addresses[0]);
+        this.state = this.setAddressState();
     }
 
-    setAddress = () =>
+    onAddressChange = (event) =>
     {
-        // Change state
-        this.setState(this.setAddressState(this.addresses[1]));
-    };
+        this.addressIndex = 1;
 
-    setAddressState(address)
+        this.setState(this.setAddressState());
+    }
+
+    setAddressState()
     {
         // Return a state var for use with this.state and this.setState()
         var state =
         {
-            firstName: address.firstName,
-            lastName: address.lastName,
-            buildingNumber: address.buildingNumber,
-            street: address.street,
-            suite: address.suite,
-            city: address.city,
-            zipcode: address.zipcode,
-            state: address.state,
-            phone: address.phone,
-            website: address.website
+            firstName: addresses[this.addressIndex].firstName,
+            lastName: addresses[this.addressIndex].lastName,
+            buildingNumber: addresses[this.addressIndex].buildingNumber,
+            street: addresses[this.addressIndex].street,
+            suite: addresses[this.addressIndex].suite,
+            city: addresses[this.addressIndex].city,
+            zipcode: addresses[this.addressIndex].zipcode,
+            state: addresses[this.addressIndex].state,
+            phone: addresses[this.addressIndex].phone,
+            website: addresses[this.addressIndex].website
         }
 
         return state;
@@ -46,38 +48,10 @@ class Address extends Component
     {
         return (
             <div className="App">
-                <p className="App-intro">
-                    firstName: { this.state.firstName }
-                </p>
-                <p className="App-intro">
-                    lastName: { this.state.lastName }
-                </p>
-                <p className="App-intro">
-                    buildingNumber: { this.state.buildingNumber }
-                </p>
-                <p className="App-intro">
-                    street: { this.state.street }
-                </p>
-                <p className="App-intro">
-                    suite: { this.state.suite }
-                </p>
-                <p className="App-intro">
-                    city: { this.state.city }
-                </p>
-                <p className="App-intro">
-                    zipcode: { this.state.zipcode }
-                </p>
-                <p className="App-intro">
-                    state: { this.state.state }
-                </p>
-                <p className="App-intro">
-                    phone: { this.state.phone }
-                </p>
-                <p className="App-intro">
-                    website: { this.state.website }
-                </p>
-
-                <button className="setAddress" onClick={this.setAddress}>Set Address</button>
+                <AddressShow
+                    address={this.state}
+                    onAddressChange={this.onAddressChange}
+                />
             </div>
         );
     }
