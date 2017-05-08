@@ -4,26 +4,26 @@ const addresses =
     {
         firstName: unknown,
         lastName: unknown,
-        buildingNumber: unknown,
         street: unknown,
-        suite: unknown,
         city: unknown,
-        zipcode: unknown,
         state: unknown,
+        zip: unknown,
         phone: unknown,
-        website: unknown
+        website: unknown,
+        email: unknown,
+        contact: unknown
     },
     {
         firstName: "Patty",
         lastName: "Murray",
-        buildingNumber: "915",
-        street: "2nd Ave",
-        suite: "#2988",
+        street: "915 2nd Ave #2988",
         city: "Seattle",
-        zipcode: "98174",
         state: "WA",
-        phone: "(206) 553-5545",
-        website: "https://www.murray.senate.gov/public/index.cfm/contactme"
+        zip: "98174",
+        phone: "206-553-5545",
+        website: "https://www.murray.senate.gov/public",
+        email: unknown,
+        contact: "https://www.murray.senate.gov/public/index.cfm/contactme"
     }
 ];
 

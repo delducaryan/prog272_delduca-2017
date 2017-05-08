@@ -19,28 +19,28 @@ class AddressShow extends Component
                     lastName: { this.props.address.lastName }
                 </p>
                 <p className="App-intro">
-                    buildingNumber: { this.props.address.buildingNumber }
-                </p>
-                <p className="App-intro">
                     street: { this.props.address.street }
-                </p>
-                <p className="App-intro">
-                    suite: { this.props.address.suite }
                 </p>
                 <p className="App-intro">
                     city: { this.props.address.city }
                 </p>
                 <p className="App-intro">
-                    zipcode: { this.props.address.zipcode }
+                    state: { this.props.address.state }
                 </p>
                 <p className="App-intro">
-                    state: { this.props.address.state }
+                    zip: { this.props.address.zip }
                 </p>
                 <p className="App-intro">
                     phone: { this.props.address.phone }
                 </p>
                 <p className="App-intro">
                     website: { this.props.address.website }
+                </p>
+                <p className="App-intro">
+                    email: { this.props.address.email }
+                </p>
+                <p className="App-intro">
+                    contact: { this.props.address.contact }
                 </p>
 
                 <button className="setAddress" onClick={this.props.onAddressChange}>Show Address</button>

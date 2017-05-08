@@ -1,6 +1,6 @@
 import React from 'react';
 import ElfHeader from '../components/ElfHeader';
-import { ReactBasics } from '../App';
+import { ReactBasics } from '../components/App';
 import { shallow } from 'enzyme';
 
 describe('React Jest Suite - ElfHeader', function ()
