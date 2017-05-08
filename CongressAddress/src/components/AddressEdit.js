@@ -63,11 +63,8 @@ class AddressEdit extends Component
                     onChange={this.props.onNameChange}
                     value={this.props.address.contact} />
 
-                {/*
-                * This button is removed until AddressShow and AddressEdit pages are separated
-                * Duplicate buttons causes errors
-                * <button className="setAddress" onClick={this.props.onAddressChange}>Show Address</button>
-                */}
+                <button className="setAddress" onClick={this.props.onAddressChange}>Show Address</button>
+
             </div>
         );
     }

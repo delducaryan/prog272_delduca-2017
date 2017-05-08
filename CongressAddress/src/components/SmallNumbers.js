@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 
-class App extends Component
+class SmallNumbers extends Component
 {
     constructor()
     {
@@ -34,4 +34,4 @@ class App extends Component
     }
 }
 
-export default App;
+export default SmallNumbers;

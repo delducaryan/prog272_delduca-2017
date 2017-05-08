@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../components/App';
-import { ReactBasics } from '../components/App';
+import App from '../components/SmallNumbers';
+import { ReactBasics } from '../components/SmallNumbers';
 import { shallow } from 'enzyme';
 
 describe('React Jest Suite - App', function ()
