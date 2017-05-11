@@ -4,7 +4,7 @@ import App from '../components/SmallNumbers';
 import { ReactBasics } from '../components/SmallNumbers';
 import { shallow } from 'enzyme';
 
-describe('React Jest Suite - App', function ()
+describe('React Jest Suite - SmallNumbers', function ()
 {
     it('renders without our App component without crashing', () =>
     {
