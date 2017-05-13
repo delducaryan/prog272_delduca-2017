@@ -20,7 +20,7 @@ You have refactored into:
 - ElfMenu
 - SmallNumbers
 
-It's best if these files keep the casing: React components should be in a file that begins with a capital letter.
+You have good casing. As suggested, your React components are in files that begin with a capital letter.
 
 The following directories exist:
 
