@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import '../css/App.css';
-import addresses from './address-list';
+import React from "react";
+import "../css/App.css";
+import addresses from "./address-list";
 import AddressEdit from "./AddressEdit";
 import Address from "./Address";
 
 class AddressChanger extends Address
 {
-    onNameChange = (event) =>
+    onNameChange(event)
     {
         this.log("ON NAME CHANGE");
 
@@ -44,6 +44,7 @@ class AddressChanger extends Address
             case "inpt_contact":
                 address.contact = event.target.value;
                 break;
+            default:
         }
 
         this.setState(
@@ -52,7 +53,7 @@ class AddressChanger extends Address
         });
     }
 
-    render()
+    render() 
     {
         return (
             <div className="App">

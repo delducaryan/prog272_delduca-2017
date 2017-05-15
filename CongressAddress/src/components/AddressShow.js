@@ -3,11 +3,6 @@ import '../css/App.css';
 
 class AddressShow extends Component
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
     render()
     {
         return (

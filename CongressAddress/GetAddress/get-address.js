@@ -42,6 +42,28 @@ function readFile(fileName, callback)
     }
 }
 
+function getFullAddress(index)
+{
+    readFile("address.json").then(function(text)
+    {
+        var json = JSON.parse(text.result);
+
+        var state =
+        {
+            firstName: json.objects[index].person.firstname,
+            lastName: json.objects[i].person.lastname,
+            street: getAddress(json.objects[i].extra.address, "W"),
+            city: getCity(json.objects[i].extra.address, "W", 13),
+            state: json.objects[i].state,
+            zip: getZip(json.objects[i].extra.address),
+            phone: json.objects[i].phone,
+            website: json.objects[i].website,
+            email: "unknown",
+            contact: json.objects[i].extra.contact_form || ""
+        };
+    });
+}
+
 function getAddress(value, char)
 {
     "use strict";
@@ -102,8 +124,4 @@ readFile("address.json").then(function(text)
 
     //console.log("\n\nSTRINGIFY\n\n", JSON.stringify(gitUser, null, 4));
     debug("all done");
-})
-
-
-
-
+});

@@ -1,4 +1,4 @@
-const unknown = 'unknown';
+const unknown = "unknown";
 const addresses =
 [
     {

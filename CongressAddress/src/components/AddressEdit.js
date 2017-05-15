@@ -3,15 +3,12 @@ import '../css/App.css';
 
 class AddressEdit extends Component
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
     render()
     {
         return (
             <div className="App">
+                <button className="" onClick={this.props.toggleGetAddress}>Toggle get-address.js</button>
+
                 <input
                     id="inpt_firstName"
                     className="App-intro"
