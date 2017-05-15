@@ -5,13 +5,11 @@ debug("Testing debug");
 
 function readFile(fileName, callback)
 {
-    "use strict";
-
     if (!callback)
     {
-        return new Promise(function(resolve, reject)
+        return new Promise(function (resolve, reject)
         {
-            fs.readFile(fileName, "utf8", function(err, fileContents)
+            fs.readFile(fileName, "utf8", function (err, fileContents)
             {
                 if (err)
                 {
@@ -27,7 +25,7 @@ function readFile(fileName, callback)
     }
     else
     {
-        fs.readFile(fileName, "utf8", function(err, fileContents)
+        fs.readFile(fileName, "utf8", function (err, fileContents)
         {
             if (err)
             {
@@ -44,44 +42,40 @@ function readFile(fileName, callback)
 
 function getFullAddress(index)
 {
-    readFile("address.json").then(function(text)
+    readFile("address.json").then(function (text)
     {
         var json = JSON.parse(text.result);
 
         var state =
         {
             firstName: json.objects[index].person.firstname,
-            lastName: json.objects[i].person.lastname,
-            street: getAddress(json.objects[i].extra.address, "W"),
-            city: getCity(json.objects[i].extra.address, "W", 13),
-            state: json.objects[i].state,
-            zip: getZip(json.objects[i].extra.address),
-            phone: json.objects[i].phone,
-            website: json.objects[i].website,
+            lastName: json.objects[index].person.lastname,
+            street: getAddress(json.objects[index].extra.address, "W"),
+            city: getCity(json.objects[index].extra.address, "W", 13),
+            state: json.objects[index].state,
+            zip: getZip(json.objects[index].extra.address),
+            phone: json.objects[index].phone,
+            website: json.objects[index].website,
             email: "unknown",
-            contact: json.objects[i].extra.contact_form || ""
+            contact: json.objects[index].extra.contact_form || "unknown"
         };
+
+        return state;
     });
 }
 
 function getAddress(value, char)
 {
-    "use strict";
-
     return value.substring(0, (value.lastIndexOf(char) - 1));
 }
 
 function getZip(value)
 {
-    "use strict";
-
     return value.substring((value.length - 6));
 }
 
 function getCity(value, char, len)
 {
-    "use strict";
-
     var start = value.lastIndexOf(char);
 
     return value.substring(start, start + len);
@@ -117,11 +111,11 @@ readFile("address.json").then(function(text)
         writeIt("zip:", getZip(json.objects[i].extra.address));
         writeIt("phone:", json.objects[i].phone);
         writeIt("website:", json.objects[i].website);
-        writeIt("email:", "");
-        writeIt("contact:", json.objects[i].extra.contact_form || "", true);
+        writeIt("email:", unknown);
+        writeIt("contact:", json.objects[i].extra.contact_form || unknown, true);
         console.log("},");
     }
 
-    //console.log("\n\nSTRINGIFY\n\n", JSON.stringify(gitUser, null, 4));
+    console.log("\n\nSTRINGIFY\n\n", JSON.stringify(gitUser, null, 4));
     debug("all done");
 });

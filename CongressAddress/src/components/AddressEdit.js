@@ -7,8 +7,6 @@ class AddressEdit extends Component
     {
         return (
             <div className="App">
-                <button className="" onClick={this.props.toggleGetAddress}>Toggle get-address.js</button>
-
                 <input
                     id="inpt_firstName"
                     className="App-intro"

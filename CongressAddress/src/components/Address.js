@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import "../css/App.css";
 import addresses from "./address-list";
-import "../../GetAddress/get-address";
 import AddressShow from "./AddressShow";
 
 class Address extends Component
@@ -36,8 +35,7 @@ class Address extends Component
     {
         // Return a state var for use with this.state and this.setState()
 
-        const address = getFullAddress(this.addressIndex);
-        //const address = addresses[this.addressIndex];
+        const address = addresses[this.addressIndex];
 
         var state =
         {
