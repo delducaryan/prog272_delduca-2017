@@ -2,6 +2,10 @@ import React, {Component} from "react";
 import "../css/App.css";
 import addresses from "./address-list";
 import AddressShow from "./AddressShow";
+import 'whatwg-fetch';
+import DataLoader from "../assets/DataLoader";
+
+const dataLoader = new DataLoader();
 
 class Address extends Component
 {
@@ -11,6 +15,16 @@ class Address extends Component
 
         // Set global variable
         this.addressIndex = 0;
+
+        const that = this;
+        dataLoader.loadAddresses(function(addressCount)
+        {
+            if (!addressCount)
+            {
+                throw new Error('Cannot get address count in address.js');
+            }
+            that.addressCount = addressCount;
+        });
 
         this.onAddressChange = this.onAddressChange.bind(this);
 

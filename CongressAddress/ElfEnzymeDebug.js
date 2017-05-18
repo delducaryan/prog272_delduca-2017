@@ -45,6 +45,13 @@ export default class ElfDebugEnzyme {
 
     }
 
+    getElement(wrapper, element, showMe) {
+        if (this.showData || showMe) {
+            const paragraphData = wrapper.find(element).debug();
+            this.display(paragraphData);
+        }
+    }
+
     getAll(wrapper, element, showMe) {
         if (this.showData || showMe) {
             const paragraphData = wrapper.find(element).debug();
