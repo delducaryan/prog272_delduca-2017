@@ -42,7 +42,7 @@ function readFile(fileName, callback)
 
 function getFullAddress(index)
 {
-    readFile("address.json").then(function (text)
+    readFile("./address.json").then(function (text)
     {
         var json = JSON.parse(text.result);
 
@@ -90,33 +90,36 @@ function writeIt(label, value, noComma)
 
 readFile("address.json").then(function(text)
 {
-    debug(text);
+    //debug(text);
+
 
     var json = JSON.parse(text.result);
 
-    debug("\n\nSTRINGIFY\n\n", JSON.stringify(json));
+    //.console.log("\n\nSTRINGIFY\n\n", JSON.stringify(json));
+    
 
     var gitUser = [];
 
     const unknown = "unknown";
 
-    const open = (i === 0) ? '[\n\t{' : '\t{';
-    console.log(open);
+    for (let i = 0; i < json.objects.length; i++) {
+        const open = (i === 0) ? '[\n\t{' : '\t{';
+        console.log(open);
 
-    writeIt("\"firstName\":", json.objects[i].person.firstname);
-    writeIt("\"lastName\":", json.objects[i].person.lastname);
-    writeIt("\"street\":", getAddress(json.objects[i].extra.address, "W"));
-    writeIt("\"city\":", getCity(json.objects[i].extra.address, "W", 13));
-    writeIt("\"state\":", json.objects[i].state);
-    writeIt("\"zip\":", getZip(json.objects[i].extra.address));
-    writeIt("\"phone\":", json.objects[i].phone);
-    writeIt("\"website\":", json.objects[i].website);
-    writeIt("\"email\":", unknown);
-    writeIt("\"contact\":", json.objects[i].extra.contact_form || unknown, true);
+        writeIt("\"firstName\":", json.objects[i].person.firstname);
+        writeIt("\"lastName\":", json.objects[i].person.lastname);
+        writeIt("\"street\":", getAddress(json.objects[i].extra.address, "W"));
+        writeIt("\"city\":", getCity(json.objects[i].extra.address, "W", 13));
+        writeIt("\"state\":", json.objects[i].state);
+        writeIt("\"zip\":", getZip(json.objects[i].extra.address));
+        writeIt("\"phone\":", json.objects[i].phone);
+        writeIt("\"website\":", json.objects[i].website);
+        writeIt("\"email\":", unknown);
+        writeIt("\"contact\":", json.objects[i].extra.contact_form || unknown, true);
 
-    const close = i < json.Length - 1 ? '\t},' : '\t}\n]';
-    console.log(close);
-
+        const close = i < json.Length - 1 ? '\t},' : '\t}\n]';
+        console.log(close);
+    }
 
     console.log("\n\nSTRINGIFY\n\n", JSON.stringify(gitUser, null, 4));
     debug("all done");
