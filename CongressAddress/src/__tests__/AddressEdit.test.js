@@ -3,7 +3,7 @@ import Address from "../components/Address";
 import addresses from "../components/address-list";
 import { ReactBasics } from "../components/SmallNumbers";
 import { mount } from "enzyme";
-import ElfTestDebug from "../../ElfEnzymeDebug";
+import ElfTestDebug from "../../ElfDebugEnzyme";
 
 const elfTestDebug = new ElfTestDebug(true);
 

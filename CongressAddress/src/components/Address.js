@@ -4,6 +4,7 @@ import addresses from "./address-list";
 import AddressShow from "./AddressShow";
 import 'whatwg-fetch';
 import DataLoader from "../assets/DataLoader";
+import detailLogger from "../assets/ElfLogger";
 
 const dataLoader = new DataLoader();
 
@@ -37,7 +38,20 @@ class Address extends Component
 
     onAddressChange(event)
     {
-        this.addressIndex += 1;
+        detailLogger.log('onAddressChange called with', event.target.id);
+        if (event.target.id.startsWith('dec')) {
+            if (this.addressIndex > 0) {
+                this.addressIndex -= 1;
+            }
+        }
+        else
+        {
+            if (this.addressIndex < this.addressCount) {
+                this.addressIndex += 1;
+            }
+        }
+        detailLogger.log('addressIndex', this.addressIndex);
+        const address = getByIndex(this.addressIndex);
 
         this.setState(
         {

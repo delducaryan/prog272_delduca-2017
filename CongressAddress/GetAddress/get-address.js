@@ -40,30 +40,6 @@ function readFile(fileName, callback)
     }
 }
 
-function getFullAddress(index)
-{
-    readFile("address.json").then(function (text)
-    {
-        var json = JSON.parse(text.result);
-
-        var state =
-        {
-            firstName: json.objects[index].person.firstname,
-            lastName: json.objects[index].person.lastname,
-            street: getAddress(json.objects[index].extra.address, "W"),
-            city: getCity(json.objects[index].extra.address, "W", 13),
-            state: json.objects[index].state,
-            zip: getZip(json.objects[index].extra.address),
-            phone: json.objects[index].phone,
-            website: json.objects[index].website,
-            email: "unknown",
-            contact: json.objects[index].extra.contact_form || "unknown"
-        };
-
-        return state;
-    });
-}
-
 function getAddress(value, char)
 {
     return value.substring(0, (value.lastIndexOf(char) - 1));
@@ -100,23 +76,25 @@ readFile("address.json").then(function(text)
 
     const unknown = "unknown";
 
-    const open = (i === 0) ? '[\n\t{' : '\t{';
-    console.log(open);
+    for (let i = 0; i < json.objects.length; i++)
+    {
+        const open = (i === 0) ? '[\n\t{' : '\t{';
+        console.log(open);
 
-    writeIt("\"firstName\":", json.objects[i].person.firstname);
-    writeIt("\"lastName\":", json.objects[i].person.lastname);
-    writeIt("\"street\":", getAddress(json.objects[i].extra.address, "W"));
-    writeIt("\"city\":", getCity(json.objects[i].extra.address, "W", 13));
-    writeIt("\"state\":", json.objects[i].state);
-    writeIt("\"zip\":", getZip(json.objects[i].extra.address));
-    writeIt("\"phone\":", json.objects[i].phone);
-    writeIt("\"website\":", json.objects[i].website);
-    writeIt("\"email\":", unknown);
-    writeIt("\"contact\":", json.objects[i].extra.contact_form || unknown, true);
+        writeIt("\"firstName\":", json.objects[i].person.firstname);
+        writeIt("\"lastName\":", json.objects[i].person.lastname);
+        writeIt("\"street\":", getAddress(json.objects[i].extra.address, "W"));
+        writeIt("\"city\":", getCity(json.objects[i].extra.address, "W", 13));
+        writeIt("\"state\":", json.objects[i].state);
+        writeIt("\"zip\":", getZip(json.objects[i].extra.address));
+        writeIt("\"phone\":", json.objects[i].phone);
+        writeIt("\"website\":", json.objects[i].website);
+        writeIt("\"email\":", unknown);
+        writeIt("\"contact\":", json.objects[i].extra.contact_form || unknown, true);
 
-    const close = i < json.Length - 1 ? '\t},' : '\t}\n]';
-    console.log(close);
-
+        const close = i < json.Length - 1 ? '\t},' : '\t}\n]';
+        console.log(close);
+    }
 
     console.log("\n\nSTRINGIFY\n\n", JSON.stringify(gitUser, null, 4));
     debug("all done");
