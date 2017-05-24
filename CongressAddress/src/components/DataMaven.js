@@ -7,8 +7,8 @@ import
 import Address from './Address';
 import AddressEdit from './AddressEdit';
 import SmallNumbers from './SmallNumbers';
-import ElfHeader from './components/ElfHeader';
-import ElfMenu from './components/ElfMenu';
+import ElfHeader from './ElfHeader';
+import ElfMenu from './ElfMenu';
 
 class DataMaven extends Component
 {

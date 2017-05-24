@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import "../css/App.css";
-import addresses from "./address-list";
+//import addresses from "./address-list";
 import AddressShow from "./AddressShow";
 import 'whatwg-fetch';
 import DataLoader from "../assets/DataLoader";
-import detailLogger from "../assets/ElfLogger";
+import ElfLogger from "../assets/ElfLogger";
 
 const dataLoader = new DataLoader();
 
@@ -38,7 +38,7 @@ class Address extends Component
 
     onAddressChange(event)
     {
-        detailLogger.log('onAddressChange called with', event.target.id);
+        ElfLogger.log('onAddressChange called with', event.target.id);
         if (event.target.id.startsWith('dec')) {
             if (this.addressIndex > 0) {
                 this.addressIndex -= 1;
@@ -50,8 +50,7 @@ class Address extends Component
                 this.addressIndex += 1;
             }
         }
-        detailLogger.log('addressIndex', this.addressIndex);
-        const address = getByIndex(this.addressIndex);
+        ElfLogger.log('addressIndex', this.addressIndex);
 
         this.setState(
         {
@@ -63,7 +62,8 @@ class Address extends Component
     {
         // Return a state var for use with this.state and this.setState()
 
-        const address = addresses[this.addressIndex];
+        const address = getByIndex(this.addressIndex);
+        //const address = addresses[this.addressIndex];
 
         var state =
         {
