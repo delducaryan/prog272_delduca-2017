@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "../css/App.css";
+import { getByIndex } from '../assets/ElfLocalStorage';
 //import addresses from "./address-list";
 import AddressShow from "./AddressShow";
 import 'whatwg-fetch';
