@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
-import logo from '../images/logo.svg';
-import '../css/App.css';
+import logo from '../images/flower.svg';
+import { Jumbotron } from "react-bootstrap";
 
 class ElfHeader extends Component
 {
     render()
     {
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to React</h2>
-                </div>
+            <div>
+                <Jumbotron>
+                    <div>
+                        <img src={logo} className="App-logo" alt="logo"/>
+                        <h2>Welcome to Prog272</h2>
+                    </div>
+                </Jumbotron>
             </div>
         );
     }
