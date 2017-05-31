@@ -17,14 +17,41 @@ import { getByIndex } from "../assets/ElfLocalStorage";
 
 class DataMaven extends Component
 {
-    constructor(props) {
+    constructor(props)
+    {
         super(props);
 
         // Set global variable
         this.addressIndex = 0;
 
+        var unknown = "loading";
+
+        this.state =
+        {
+            address:
+            {
+                "firstName": unknown,
+                "lastName": unknown,
+                "street": unknown,
+                "city": unknown,
+                "state": unknown,
+                "zip": unknown,
+                "phone": unknown,
+                "website": unknown,
+                "email": unknown,
+                "contact": unknown
+            }
+        };
+
+        this.onAddressChange = this.onAddressChange.bind(this);
+    }
+/*
+    componentDidMount()
+    {
+        elfLogger.log("DID MOUNT");
         const that = this;
-        dataLoader.loadAddresses(function (addressCount) {
+        dataLoader.loadAddresses(function (addressCount)
+        {
             if (!addressCount) {
                 throw new Error('Cannot get address count in address.js');
             }
@@ -32,14 +59,15 @@ class DataMaven extends Component
         });
 
         this.onAddressChange = this.onAddressChange.bind(this);
+        elfLogger.log("LOADED ADDRESS");
 
         // Set default state
-        this.state =
+        this.setState(
             {
                 address: this.getAddressState()
-            };
+            });
     }
-
+*/
     onAddressChange(event)
     {
         ElfLogger.log('onAddressChange called with', event.target.id);
