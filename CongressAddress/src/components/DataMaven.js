@@ -45,14 +45,15 @@ class DataMaven extends Component
 
         this.onAddressChange = this.onAddressChange.bind(this);
     }
-/*
+
     componentDidMount()
     {
         elfLogger.log("DID MOUNT");
         const that = this;
         dataLoader.loadAddresses(function (addressCount)
         {
-            if (!addressCount) {
+            if (!addressCount)
+            {
                 throw new Error('Cannot get address count in address.js');
             }
             that.addressCount = addressCount;
@@ -67,10 +68,10 @@ class DataMaven extends Component
                 address: this.getAddressState()
             });
     }
-*/
+
     onAddressChange(event)
     {
-        ElfLogger.log('onAddressChange called with', event.target.id);
+        elfLogger.log('onAddressChange called with', event.target.id);
         if (event.target.id.startsWith('dec'))
         {
             if (this.addressIndex > 0)
@@ -85,7 +86,7 @@ class DataMaven extends Component
                 this.addressIndex += 1;
             }
         }
-        ElfLogger.log('addressIndex', this.addressIndex);
+        elfLogger.log('addressIndex', this.addressIndex);
 
         this.setState(
             {

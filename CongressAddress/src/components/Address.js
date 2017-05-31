@@ -8,6 +8,7 @@ import ElfLogger from "../assets/ElfLogger";
 import { getByIndex } from "../assets/ElfLocalStorage";
 
 const dataLoader = new DataLoader();
+const elfLogger = new ElfLogger();
 
 class Address extends Component
 {
@@ -18,8 +19,33 @@ class Address extends Component
         // Set global variable
         this.addressIndex = 0;
 
+        var unknown = "loading";
+
+        this.state =
+        {
+            address:
+            {
+                "firstName": unknown,
+                "lastName": unknown,
+                "street": unknown,
+                "city": unknown,
+                "state": unknown,
+                "zip": unknown,
+                "phone": unknown,
+                "website": unknown,
+                "email": unknown,
+                "contact": unknown
+            }
+        };
+
+        this.onAddressChange = this.onAddressChange.bind(this);
+    }
+
+    componentDidMount()
+    {
+        elfLogger.log("DID MOUNT");
         const that = this;
-        dataLoader.loadAddresses(function(addressCount)
+        dataLoader.loadAddresses(function (addressCount)
         {
             if (!addressCount)
             {
@@ -29,17 +55,18 @@ class Address extends Component
         });
 
         this.onAddressChange = this.onAddressChange.bind(this);
+        elfLogger.log("LOADED ADDRESS");
 
         // Set default state
-        this.state =
-        {
-            address: this.getAddressState()
-        };
+        this.setState(
+            {
+                address: this.getAddressState()
+            });
     }
 
     onAddressChange(event)
     {
-        ElfLogger.log('onAddressChange called with', event.target.id);
+        elfLogger.log('onAddressChange called with', event.target.id);
         if (event.target.id.startsWith('dec'))
         {
             if (this.addressIndex > 0)
@@ -54,7 +81,7 @@ class Address extends Component
                 this.addressIndex += 1;
             }
         }
-        ElfLogger.log('addressIndex', this.addressIndex);
+        elfLogger.log('addressIndex', this.addressIndex);
 
         this.setState(
         {

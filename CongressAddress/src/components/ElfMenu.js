@@ -18,6 +18,8 @@ class ElfMenu extends Component
                 <Navbar.Collapse>
                     <Nav>
                         <LinkContainer to="/"><NavItem>Address Show</NavItem></LinkContainer>
+                        <LinkContainer to="/edit"><NavItem>Address Edit</NavItem></LinkContainer>
+                        <LinkContainer to="/small"><NavItem>Small Numbers</NavItem></LinkContainer>
                         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                             <MenuItem eventKey={3.1}>Action</MenuItem>
                             <MenuItem eventKey={3.2}>Another action</MenuItem>
