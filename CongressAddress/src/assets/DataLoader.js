@@ -35,6 +35,18 @@ export default class DataLoader {
             callback(localStorage.getItem(this.STORE_SET[2]));
         } else {
             logger.log('Loading data');
+            const that = this;
+            const ip = '168.156.47.60';
+            fetch('http://' + ip + ':30025/all-data')
+            .then((response) => response.json())
+            .then(function(result) {
+                that.setLocalStorage(result.allData);
+                callback(result.length);
+            }).catch(function (err) {
+                logger.log(err);
+            });
+            /*
+            logger.log('Loading data');
             fetch('../../public/address-list.json').then(function(data) {
                 const addresses = data.json();
                 console.log(addresses);
@@ -47,6 +59,7 @@ export default class DataLoader {
             }).catch(function (err) {
                 logger.log(err);
             });
+            */
         }
     }
 }
